@@ -1,12 +1,15 @@
 import React from 'react'
 import { StyleSheet, Text, View,Dimensions } from 'react-native'
-import HomeScreen from './src/screens/HomeScreen'
+import { OriginContextProvider, DestinationContextProvider } from './src/contexts/contexts';
+import RootNavigator from './src/navigations/RootNavigator';
 
 const App = () => {
   return (
-    <View style = {styles.container}>
-       <HomeScreen />
-    </View>
+    <DestinationContextProvider>
+      <OriginContextProvider>
+        <RootNavigator />
+      </OriginContextProvider>
+    </DestinationContextProvider>
   )
 }
 
